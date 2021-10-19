@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="/fragments/head "></head>
+
+<body>
+    
+    <form th:object="${student}" method="post" th:action="@{/update}" enctype="multipart/form-data">
+        <div class="container">
+            <div th:if="${message}" th:text="${message}" th:class="${'alert '+alertClass}"></div>
+
+            <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">Errors</div>
+
+            <div class="form-group">
+                <label for="">Profile Photo:</label>
+                <input type="file" class="form-control" th:name="file" th:id="file">
+                <img class="mt-2" src="#" alt="" id="imgPreview1">
+                <br><br>
+                <label for="">Current image:</label>
+                <img style="width: 200px; height: 100px;" th:src="@{'/media/' + ${student.image}}">
+            </div>
+
+            <div class="form-group">
+                <input type="text" th:field="*{contact}" class="form-control" placeholder="Enter contact">
+                <span class="error" th:if="${#fields.hasErrors('contact')}" th:errors="*{contact}"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="text" th:field="*{address}" class="form-control" placeholder="Enter address">
+                <span class="error" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="text" th:field="*{course}" class="form-control" placeholder="Enter course">
+                <span class="error" th:if="${#fields.hasErrors('course')}" th:errors="*{course}"></span>
+            </div>
+
+            <input type="hidden" th:field="*{id}" th:value="${student.id}">
+            <input type="hidden" th:field="*{name}" class="form-control" th:value="${student.name}">
+            <input type="hidden" th:field="*{email}" class="form-control" th:value="${student.email}">
+            <input type="hidden" th:field="*{marks10}" class="form-control" th:value="${student.marks10}">
+            <input type="hidden" th:field="*{yop10}" class="form-control" th:value="${student.yop10}">
+            <input type="hidden" th:field="*{marks12}" class="form-control" th:value="${student.marks12}">
+            <input type="hidden" th:field="*{yop12}" class="form-control" th:value="${student.yop12}">
+            <input type="hidden" th:field="*{marksdiploma}" class="form-control" th:value="${student.marksdiploma}">
+            <input type="hidden" th:field="*{yopdiploma}" class="form-control" th:value="${student.yopdiploma}">
+            <input type="hidden" th:field="*{entranceexam}" class="form-control" th:value="${student.entranceexam}">
+            <input type="hidden" th:field="*{rank}" class="form-control" th:value="${student.rank}">
+            <input type="hidden" th:field="*{payment}" class="form-control" th:value="${student.payment}">
+          
+
+            <div class="form-group">
+                <input type="submit" value="  Update " class="btn btn-primary">
+               
+            </div>
+
+        </div>
+    </form>
+    <br><br><br><br><br><br><br><br><br>
+    <footer th:replace="/fragments/foot"></footer>
+    <footer th:replace="/fragments/footer"></footer>
+
+    <script>
+        $(function () {
+            $("#file").change(function () {
+                readURL(this, '1');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head th:replace="/fragments/head "></head>
+<body>
+    <br>
+    <p style="margin-left: 980px;">Hi Admin
+        <a href="/alogin">
+         <button style="background-color:crimson;color:white;box-shadow: 10px;border-radius:8px;">Logout</button>
+         </a>
+     </p>
+     <br><br>
+    <div class="container">
+        <div th:if="${message}" th:text="${message}" th:class="${'alert '+alertClass}"></div>
+        <div th:if="${!students.empty}">
+            <table class="table sorting">
+                <tr>
+                    <th>ID</th>
+                    <th>Profile Photo</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Course</th>
+                </tr>
+                <tr th:each="student:${students}">
+                    <td th:text="${student.id}"></td>
+                    <td>
+                        <img style="width: 60px; height: 50px;" th:src="@{'/media/' + ${student.image}}">
+                    </td>
+                    <td th:text="${student.name}"></td>
+                    <td th:text="${student.contact}"></td>
+                    <td th:text="${student.course}"></td>
+                    <td><a th:href="@{'/update/'+${student.id}}">Edit</a></td>
+                    <td><a th:href="@{'/delete/'+${student.id}}" class="confirmDeletion">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div th:unless="${!students.empty}">
+            <h4 class="display-4">There are no students</h4>
+        </div>
+    </div><br><br><br><br>
+    <footer th:replace="/fragments/foot"></footer>
+    <footer th:replace="/fragments/footer"></footer>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="/fragments/head "></head>
+
+<body>
+    <nav th:replace="/fragments/nav"></nav><br>
+    <form th:object="${user}" method="post" th:action="@{/register}">
+        <div class="container">
+            <div th:if="${message}" th:text="${message}" th:class="${'alert '+alertClass}"></div>
+
+            <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">Errors</div>
+
+<div class="form-group">
+<input type="text" th:field="*{name}" class="form-control" placeholder="Enter name" autofocus="autofocus">
+<span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+</div>
+
+<div class="form-group">
+<input type="text" th:field="*{username}" class="form-control" placeholder="Enter username">
+<span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+</div>
+
+<div class="form-group">
+<input type="text" th:field="*{email}" class="form-control" placeholder="Enter email">
+<span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+</div>
+
+<div class="form-group">
+<input type="text" th:field="*{password}" class="form-control" placeholder="Enter password">
+<span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+</div>
+<div class="form-group">
+<input type="text" th:field="*{confirmPassword}" class="form-control" placeholder="Enter confirmPassword">
+<span class="error" th:if="${passwordMatchProblem}">Passwords do not match</span>
+</div>
+<div class="form-group">
+<input type="text" th:field="*{stream}" class="form-control" placeholder="Enter stream">
+<span class="error" th:if="${#fields.hasErrors('stream')}" th:errors="*{stream}"></span>
+</div>
+
+<div class="form-group">
+<input type="submit" value=" Register " class="btn btn-primary">
+
+</div>
+</div>
+</form>
+<footer th:replace="/fragments/foot"></footer>
+</body>
+</html>

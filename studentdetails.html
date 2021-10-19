@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head th:replace="/fragments/head "></head>
+<body>
+    <nav th:replace="/fragments/nav "></nav>
+    <div class="container">
+        <div th:if="${message}" th:text="${message}" th:class="${'alert '+alertClass}"></div>
+        
+            <table class="table sorting">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Stream</th>
+                </tr>
+                <tr th:each="user:${users}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.username}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.password}"></td>
+                    <td th:text="${user.stream}"></td>
+                </tr>
+            </table>
+        
+    </div><br><br><br><br>
+    <div class="blinking">
+    <h1>Syllabus</h1>
+    <a href="https://makautwb.ac.in/syllabus/CSE_Final_Upto_4h_Year%20Syllabus_14.03.14.pdf">Click Here For CSE</a><br>
+    <a href="https://makautwb.ac.in/syllabus/IT_Final_Upto_4th_Year%20Syllabus_14.03.14.pdf">Click Here For IT</a><br>
+    <a href="https://makautwb.ac.in/syllabus/EE_Final_Upto_4th_Year%20Syllabus_14.03.14.pdf">Click Here For EE</a><br>
+    <a href="https://www.makautwb.ac.in/syllabus/Civil%20Engineering%20Syllabus-13.6.19.pdf">Click Here For CE</a><br>
+    <a href="https://www.makautwb.ac.in/syllabus/ECE%20Syllabus%20with%20MOOCs-10.06.2019.pdf">Click Here For ECE</a><br>
+    <a href="https://makautwb.ac.in/syllabus/ME_Final_Upto_4th_Year%20Syllabus_04.06.13.pdf">Click Here For ME</a><br>
+    <a href="https://makautwb.ac.in/syllabus/BBA%20Syllabus=8.1.2019.pdf">Click Here For BBA</a><br>
+    <a href="https://makautwb.ac.in/syllabus/BCA%20Syllabus%20(for%202018-2019%20Admission%20Session)-27.07.2018.pdf">Click Here For BCA</a><br>
+    </div>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <footer th:replace="/fragments/foot"></footer>
+    <footer th:replace="/fragments/footer"></footer>
+</body>
+
+</html>

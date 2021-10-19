@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head th:replace="/fragments/head "></head>
+<script language="javascript">
+	function f1() {
+		var uname, pwd;
+		uname = document.getElementById('username').value;
+		pwd = document.getElementById('password').value;
+		if (uname == "admin" && pwd == "1234") {
+			document.location.href = "/retrieve";
+		}
+		else {
+			alert("wrong");
+		}
+		return false;
+	}
+</script>
+
+<body>
+	<nav th:replace="/fragments/nav "></nav>
+
+	<br><br><br><br>
+	<h1 style="text-align: center;">ADMIN LOGIN</h1>
+	<table class="center">
+		
+		<tr>
+			<td style="text-align:center;margin-left :400px;">UserName</td>
+			<td><input type="text" name="username" id="username" placeholder="enter the username" text-align="center"
+					margin-left="400px" vertical-align="middle" /></td>
+		</tr>
+		<tr>
+			<td style="text-align: center;margin-left: 400px;margin-bottom: 20px; vertical-align: middle;">Password</td>
+			<td><input type="password" name="password" id="password" placeholder="enter password" text-align="center"
+					margin-left="400px" /></td>
+		</tr>
+	</table>
+
+	<br>
+	<br>
+	<input type="button" value="Login" onclick="f1()" style="margin-left: 600px;" />
+	<!-- </form> -->
+	<!-- </form> -->
+	<br>
+	<br>
+	<!-- </form>  -->
+	<br><br><br><br><br><br>
+	<footer th:replace="/fragments/foot"></footer>
+</body>
+
+</html>

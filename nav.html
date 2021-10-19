@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <p>MSD Groups</p>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/index">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Admission
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+            <a class="dropdown-item" href="/courses">Courses</a>
+            <a class="dropdown-item" href="/fees">Fee Structure</a>
+            <a class="dropdown-item" href="/enrollmentform">Student Enrollment Form</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Depts & Labs
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+            <a class="dropdown-item" href="/lab">Labs</a>
+            <a class="dropdown-item" href="/faculty">Faculty List</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Placement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+            <a class="dropdown-item" href="/cell">About T & P Cell</a>
+            <a class="dropdown-item" href="/track">Placement Track Record</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contactus">Contact Us</a>
+        </li>
+
+        <li class="nav-item dropdown" th:if="${principal == null}">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Login
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+            <a class="dropdown-item" href="/alogin">Admin Login</a>
+            <a class="dropdown-item" href="/studentdetails">Student Details</a>
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+    <form th:if="${principal != null}" method="post" th:action="@{/logout}">
+      <span class="text-white" th:text="${'Hi, ' + principal}"></span>
+      <button class="btn btn-secondary">Logout</button>
+    </form>
+  </div>
+</nav>

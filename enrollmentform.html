@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="/fragments/head "></head>
+
+<body>
+   <nav th:replace="/fragments/nav"></nav><br>
+   <form th:object="${student}" method="post" th:action="@{/enrollmentform}" enctype="multipart/form-data">
+      <div class="container">
+         <div th:if="${message}" th:text="${message}" th:class="${'alert '+alertClass}"></div>
+
+         <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">Errors</div>
+
+         <div class="form-group">
+            <label for="">Image Upload</label>
+            <input type="file" class="form-control" th:name="file" th:id="file">
+         </div>
+         <div class="form-group">
+            <input type="text" th:field="*{name}" class="form-control" placeholder="Enter name" autofocus="autofocus">
+            <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+         </div>
+
+         <div class="form-group">
+            <input type="text" th:field="*{contact}" class="form-control" placeholder="Enter contact">
+            <span class="error" th:if="${#fields.hasErrors('contact')}" th:errors="*{contact}"></span>
+         </div>
+
+         <div class="form-group">
+            <input type="text" th:field="*{email}" class="form-control" placeholder="Enter email">
+            <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+         </div>
+
+         <div class="form-group">
+            <input type="text" th:field="*{address}" class="form-control" placeholder="Enter address">
+            <span class="error" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+         </div>
+
+         <div class="form-group">
+            <input type="text" th:field="*{course}" class="form-control" placeholder="Enter course">
+            <span class="error" th:if="${#fields.hasErrors('course')}" th:errors="*{course}"></span>
+         </div>
+
+         <div class="form-group">
+            <input type="text" th:field="*{marks10}" class="form-control" placeholder="Enter 10 th marks">
+            <span class="error" th:if="${#fields.hasErrors('marks10')}" th:errors="*{marks10}"></span>
+         </div>
+         <div class="form-group">
+            <input type="text" th:field="*{yop10}" class="form-control" placeholder="Enter 10th passing year">
+            <span class="error" th:if="${#fields.hasErrors('yop10')}" th:errors="*{yop10}"></span>
+         </div>
+         <div class="form-group">
+            <input type="text" th:field="*{marks12}" class="form-control" placeholder="Enter 12 th marks">
+            <span class="error" th:if="${#fields.hasErrors('marks12')}" th:errors="*{marks12}"></span>
+         </div>
+         <div class="form-group">
+            <input type="text" th:field="*{yop12}" class="form-control" placeholder="Enter 12th yop">
+            <span class="error" th:if="${#fields.hasErrors('yop12')}" th:errors="*{yop12}"></span>
+         </div>
+         <div class="form-group">
+            <input type="text" th:field="*{marksdiploma}" class="form-control" placeholder="Enter diploma marks">
+            <span class="error" th:if="${#fields.hasErrors('marksdiploma')}" th:errors="*{marksdiploma}"></span>
+         </div>
+         <div class="form-group">
+            <input type="text" th:field="*{yopdiploma}" class="form-control"
+               placeholder="Enter year of passing diploma">
+            <span class="error" th:if="${#fields.hasErrors('yopdiploma')}" th:errors="*{yopdiploma}"></span>
+         </div>
+         <div class="form-group">
+            <input type="text" th:field="*{entranceexam}" class="form-control" placeholder="Enter the entrance exam">
+            <span class="error" th:if="${#fields.hasErrors('entranceexam')}" th:errors="*{entranceexam}"></span>
+         </div>
+         <div class="form-group">
+            <input type="text" th:field="*{rank}" class="form-control" placeholder="Enter the rank ">
+            <span class="error" th:if="${#fields.hasErrors('rank')}" th:errors="*{rank}"></span>
+         </div>
+         <div class="form-group">
+            <input type="text" th:field="*{payment}" class="form-control" placeholder="Enter payment">
+            <span class="error" th:if="${#fields.hasErrors('payment')}" th:errors="*{payment}"></span>
+         </div>
+         <div class="form-group">
+            <input type="submit" value=" submit " class="btn btn-primary">
+
+         </div>
+
+      </div>
+   </form>
+   <footer th:replace="/fragments/foot"></footer>
+
+</body>
+
+</html>
